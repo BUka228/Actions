@@ -1,0 +1,30 @@
+name: Build project on push to main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Build project (create zip archive)
+        run: |
+          mkdir -p build
+          zip -r build/calculator-project.zip calculator.py README.md tests || zip -r build/calculator-project.zip calculator.py README.md
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: calculator-build
+          path: build/
