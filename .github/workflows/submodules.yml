@@ -1,0 +1,28 @@
+name: Handle git submodules
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-with-submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: List repository tree (including submodules)
+        run: |
+          echo "Repository tree with submodules:"
+          ls -R
+
+      - name: Dummy step that pretends to use submodule code
+        run: |
+          echo "Here we could run build/tests that depend on submodules."
