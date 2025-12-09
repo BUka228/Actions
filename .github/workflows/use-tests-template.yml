@@ -1,0 +1,12 @@
+name: Use reusable tests workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-tests-template:
+    uses: ./.github/workflows/tests-template.yml
+    with:
+      python-version: '3.11'
