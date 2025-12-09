@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "calculator-actions-example"
+version = "0.1.0"
+description = "Учебный пример: модуль calculator для задач по GitHub Actions"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+  {name = "Student", email = "student@example.com"}
+]
+
+[project.urls]
+Homepage = "https://github.com/BUka228/Actions"
+
+[tool.setuptools]
+py-modules = ["calculator"]
