@@ -4,7 +4,7 @@ import pytest
 
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from calculator import add, subtract, multiply, divide
+from calculator import add, subtract, multiply, divide  # noqa: E402
 
 
 def test_add_integers():
