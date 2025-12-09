@@ -1,0 +1,18 @@
+name: Hello World Workflow
+
+# Блок 'on' определяет триггеры (события), запускающие workflow
+on:
+  push:
+    branches:
+      - main  # Запускать только при push в ветку main
+
+# Блок 'jobs' описывает задачи, которые будут выполняться
+jobs:
+  print-hello:
+    name: Print Hello Task
+    runs-on: ubuntu-latest  # Виртуальная машина (раннер) на базе Linux
+    
+    steps:
+      # Шаг 1: Выполнение команды в консоли
+      - name: Run echo command
+        run: echo "Hello, World!"
